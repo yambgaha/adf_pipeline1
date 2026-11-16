@@ -1,0 +1,15 @@
+{
+	"name": "adf-data-prod-001",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b7d4d573-a3ea-49cf-b750-3637fb9988f9",
+		"tenantId": "2772513a-b854-40db-8cb7-757e3435d160"
+	}
+}
