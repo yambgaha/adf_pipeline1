@@ -59,6 +59,46 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "delete_input_file",
+				"description": "The input file will be deleted once copied to the output location",
+				"type": "Delete",
+				"dependsOn": [
+					{
+						"activity": "copy_file",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "input_data_set",
+						"type": "DatasetReference"
+					},
+					"logStorageSettings": {
+						"linkedServiceName": {
+							"referenceName": "input_linked_service",
+							"type": "LinkedServiceReference"
+						},
+						"path": "input"
+					},
+					"enableLogging": true,
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
+						"enablePartitionDiscovery": false
+					}
+				}
 			}
 		],
 		"annotations": []
